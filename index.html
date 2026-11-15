@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CareerPath - აღმოაჩინე შენი მომავალი პროფესია, უნივერსიტეტი და კარიერული შესაძლებლობები.">
+  <title>CareerPath | Build Your Future</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Georgian:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <aside class="sidebar" id="sidebar">
+    <a class="logo" href="#" onclick="showPage('home')">
+      <span class="logo-icon">C</span>
+      Career<span>Path</span>
+    </a>
+
+    <p class="menu-label" data-i18n="menu">მთავარი მენიუ</p>
+
+    <nav>
+      <button class="nav-item active" data-page="home" onclick="showPage('home')">
+        ◫ <span data-i18n="dashboard">მთავარი გვერდი</span>
+      </button>
+      <button class="nav-item" data-page="quiz" onclick="showPage('quiz')">
+        ◈ <span data-i18n="quiz">პროფესიის ტესტი</span>
+      </button>
+      <button class="nav-item" data-page="universities" onclick="showPage('universities')">
+        ▦ <span data-i18n="universities">უნივერსიტეტები</span>
+      </button>
+      <button class="nav-item" data-page="jobs" onclick="showPage('jobs')">
+        ◉ <span data-i18n="jobs">ვაკანსიები</span>
+      </button>
+      <button class="nav-item" data-page="assistant" onclick="showPage('assistant')">
+        ✧ <span data-i18n="assistant">AI ასისტენტი</span>
+      </button>
+      <button class="nav-item" data-page="cv" onclick="showPage('cv')">
+        ▤ <span data-i18n="cv">ჩემი CV</span>
+      </button>
+      <button class="nav-item" data-page="saved" onclick="showPage('saved')">
+        ♡ <span data-i18n="saved">შენახული</span>
+      </button>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="help-card">
+        <div class="help-icon">✦</div>
+        <h4 data-i18n="helpTitle">იპოვე შენი გზა!</h4>
+        <p data-i18n="helpText">შენი მომავალი შენს ხელშია.</p>
+        <button onclick="showPage('quiz')" data-i18n="startTest">დაიწყე ტესტი →</button>
+      </div>
+      <div class="profile">
+        <div class="avatar">U</div>
+        <div>
+          <strong data-i18n="user">მომხმარებელი</strong>
+          <small>CareerPath Member</small>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <header class="topbar">
+      <button class="mobile-menu" onclick="toggleSidebar()">☰</button>
+      <div class="breadcrumb">CareerPath / <span id="pageName">Dashboard</span></div>
+      <div class="top-actions">
+        <button class="language-btn" onclick="toggleLanguage()">KA / EN</button>
+        <button class="notification" aria-label="Notifications">♧</button>
+        <div class="avatar">U</div>
+      </div>
+    </header>
+
+    <!-- HOME -->
+    <section class="page active" id="home">
+
+      <div class="welcome-banner">
+        <div class="welcome-content">
+          <span class="eyebrow" data-i18n="welcomeTag">YOUR FUTURE STARTS HERE</span>
+          <h1 data-i18n="welcome">აღმოაჩინე შენი მომავალი პროფესია.</h1>
+          <p data-i18n="welcomeText">გაიცანი საკუთარი შესაძლებლობები, იპოვე სასურველი უნივერსიტეტი და დაგეგმე შენი წარმატება.</p>
+          <button class="primary-btn" onclick="showPage('quiz')" data-i18n="discover">აღმოაჩინე შენი გზა →</button>
+        </div>
+        <div class="welcome-art">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="center-star">✦</div>
+          <span class="float-icon icon-one">🎓</span>
+          <span class="float-icon icon-two">💡</span>
+          <span class="float-icon icon-three">🚀</span>
+        </div>
+      </div>
+
+      <div class="section-heading">
+        <div>
+          <h2 data-i18n="overview">შენი კარიერული სივრცე</h2>
+          <p data-i18n="overviewText">ყველაფერი, რაც მომავლის დაგეგმვაში დაგეხმარება.</p>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon purple">◈</div>
+          <div><span data-i18n="stat1">პროფესიის ტესტი</span><h3 id="quizStat">0%</h3></div>
+          <small>↗</small>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon pink">♡</div>
+          <div><span data-i18n="stat2">შენახული</span><h3 id="savedStat">0</h3></div>
+          <small>✦</small>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon blue">▦</div>
+          <div><span data-i18n="stat3">უნივერსიტეტები</span><h3>06</h3></div>
+          <small>↗</small>
+        </div>
+      </div>
+
+      <div class="content-grid">
+        <div class="panel">
+          <div class="panel-heading">
+            <div>
+              <h2 data-i18n="popular">პოპულარული მიმართულებები</h2>
+              <p data-i18n="popularText">აღმოაჩინე საინტერესო პროფესიები.</p>
+            </div>
+            <button class="text-btn" onclick="showPage('quiz')" data-i18n="explore">ყველას ნახვა →</button>
+          </div>
+          <div class="career-grid" id="careerGrid"></div>
+        </div>
+
+        <div class="panel quick-panel">
+          <h2 data-i18n="quick">სწრაფი წვდომა</h2>
+          <button class="quick-link" onclick="showPage('quiz')">🎯 <span data-i18n="quick1">პროფესიის ტესტი</span> →</button>
+          <button class="quick-link" onclick="showPage('assistant')">✧ <span data-i18n="quick2">AI ასისტენტი</span> →</button>
+          <button class="quick-link" onclick="showPage('universities')">🎓 <span data-i18n="quick3">უნივერსიტეტები</span> →</button>
+          <button class="quick-link" onclick="showPage('cv')">📄 <span data-i18n="quick4">შექმენი CV</span> →</button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- QUIZ -->
+    <section class="page" id="quiz">
+      <div class="page-heading">
+        <span class="eyebrow">CAREER DISCOVERY</span>
+        <h1 data-i18n="quizTitle">იპოვე შენი პროფესია</h1>
+        <p data-i18n="quizDescription">უპასუხე კითხვებს და აღმოაჩინე, რომელი მიმართულებები შეესაბამება შენს ინტერესებს.</p>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-progress">
+          <span id="questionNumber">Question 1 / 6</span>
+          <span id="progressPercent">0%</span>
+        </div>
+        <div class="progress-track"><div id="progressBar"></div></div>
+        <div id="quizContent"></div>
+        <div class="quiz-footer">
+          <button class="secondary-btn" id="backBtn" onclick="previousQuestion()" disabled data-i18n="back">← უკან</button>
+          <button class="primary-btn" id="nextBtn" onclick="nextQuestion()" data-i18n="next">შემდეგი →</button>
+        </div>
+      </div>
+      <div id="quizResult" class="result-card hidden"></div>
+    </section>
+
+    <!-- UNIVERSITIES -->
+    <section class="page" id="universities">
+      <div class="page-heading">
+        <span class="eyebrow">EDUCATION DATABASE</span>
+        <h1 data-i18n="uniTitle">უნივერსიტეტების ბაზა</h1>
+        <p data-i18n="uniDescription">შეისწავლე უნივერსიტეტები საქართველოში და მსოფლიოს გარშემო.</p>
+      </div>
+
+      <div class="filter-bar">
+        <input id="uniSearch" type="search" placeholder="უნივერსიტეტის ძიება..." oninput="renderUniversities()">
+        <select id="uniCountry" onchange="renderUniversities()">
+          <option value="all">ყველა ქვეყანა</option>
+          <option value="Georgia">საქართველო</option>
+          <option value="USA">აშშ</option>
+          <option value="UK">დიდი ბრიტანეთი</option>
+          <option value="Germany">გერმანია</option>
+        </select>
+      </div>
+      <div class="database-grid" id="universityGrid"></div>
+    </section>
+
+    <!-- JOBS -->
+    <section class="page" id="jobs">
+      <div class="page-heading">
+        <span class="eyebrow">CAREER OPPORTUNITIES</span>
+        <h1 data-i18n="jobsTitle">ვაკანსიები და სტაჟირება</h1>
+        <p data-i18n="jobsDescription">აღმოაჩინე კარიერული შესაძლებლობები და ისწავლე CV-ის მომზადება.</p>
+      </div>
+      <div class="filter-bar">
+        <input id="jobSearch" type="search" placeholder="მოძებნე პოზიცია..." oninput="renderJobs()">
+        <select id="jobType" onchange="renderJobs()">
+          <option value="all">ყველა კატეგორია</option>
+          <option value="Internship">სტაჟირება</option>
+          <option value="Remote">დისტანციური</option>
+          <option value="Junior">დამწყები</option>
+        </select>
+      </div>
+      <div id="jobsList" class="jobs-list"></div>
+      <div class="notice">ⓘ <span data-i18n="jobNotice">ეს არის დემო მონაცემები და არა რეალური აქტიური ვაკანსიები. არასრულწლოვანმა სამუშაო შესაძლებლობები უფროსთან ერთად უნდა გადაამოწმოს.</span></div>
+    </section>
+
+    <!-- AI ASSISTANT -->
+    <section class="page" id="assistant">
+      <div class="page-heading">
+        <span class="eyebrow">CAREERPATH AI</span>
+        <h1 data-i18n="aiTitle">შენი კარიერული ასისტენტი</h1>
+        <p data-i18n="aiDescription">დასვი შეკითხვები პროფესიებზე, განათლებასა და მომავალ გეგმებზე.</p>
+      </div>
+
+      <div class="chat-container">
+        <div class="chat-header">
+          <div class="ai-avatar">✧</div>
+          <div><strong>CareerPath AI</strong><small><span class="online-dot"></span> Demo assistant</small></div>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+          <div class="message bot-message" data-i18n="aiGreeting">გამარჯობა! მე ვარ CareerPath-ის ასისტენტი. რით შემიძლია დაგეხმარო პროფესიის არჩევაში?</div>
+        </div>
+        <div class="suggestions">
+          <button onclick="askSuggestion('რომელი პროფესია შემეფერება?')" data-i18n="suggest1">რომელი პროფესია შემეფერება?</button>
+          <button onclick="askSuggestion('როგორ მოვემზადო უნივერსიტეტისთვის?')" data-i18n="suggest2">როგორ მოვემზადო უნივერსიტეტისთვის?</button>
+        </div>
+        <form class="chat-input" id="chatForm">
+          <input id="chatInput" placeholder="დაწერე შეკითხვა..." required>
+          <button type="submit">➤</button>
+        </form>
+        <p class="demo-label">Demo AI · რეალური AI API ჯერ დაკავშირებული არ არის.</p>
+      </div>
+    </section>
+
+    <!-- CV -->
+    <section class="page" id="cv">
+      <div class="page-heading">
+        <span class="eyebrow">CV BUILDER</span>
+        <h1 data-i18n="cvTitle">შექმენი შენი CV</h1>
+        <p data-i18n="cvDescription">შეავსე ინფორმაცია და შექმენი მარტივი პროფესიული რეზიუმე.</p>
+      </div>
+      <div class="cv-layout">
+        <form id="cvForm" class="panel cv-form">
+          <label data-i18n="fullName">სრული სახელი</label>
+          <input name="name" required placeholder="სახელი გვარი">
+          <label>Email</label>
+          <input name="email" type="email" required placeholder="example@email.com">
+          <label data-i18n="profession">სასურველი მიმართულება</label>
+          <input name="profession" placeholder="მაგ. Graphic Designer">
+          <label data-i18n="education">განათლება</label>
+          <textarea name="education" rows="3" placeholder="შენი განათლება..."></textarea>
+          <label data-i18n="skills">უნარები</label>
+          <textarea name="skills" rows="3" placeholder="მაგ. ინგლისური, დიზაინი..."></textarea>
+          <label data-i18n="experience">გამოცდილება / პროექტები</label>
+          <textarea name="experience" rows="4" placeholder="შენი გამოცდილება..."></textarea>
+          <button type="submit" class="primary-btn" data-i18n="generateCV">CV-ის შექმნა ↓</button>
+        </form>
+        <div class="panel cv-preview" id="cvPreview">
+          <div class="preview-placeholder">
+            <span>📄</span>
+            <h3 data-i18n="previewTitle">შენი CV აქ გამოჩნდება</h3>
+            <p data-i18n="previewText">შეავსე ფორმა და დააჭირე შექმნის ღილაკს.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAVED -->
+    <section class="page" id="saved">
+      <div class="page-heading">
+        <span class="eyebrow">YOUR COLLECTION</span>
+        <h1 data-i18n="savedTitle">შენახული მასალა</h1>
+        <p data-i18n="savedDescription">შენი რჩეული პროფესიები და უნივერსიტეტები.</p>
+      </div>
+      <div class="database-grid" id="savedGrid"></div>
+    </section>
+
+    <footer>© 2026 CareerPath. <span data-i18n="footer">შენი მომავალი იწყება დღეს.</span></footer>
+
+  </main>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
